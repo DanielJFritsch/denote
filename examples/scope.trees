@@ -1,0 +1,9 @@
+% scope.trees — quantifier scope (use with extensional.lex)
+ea:       [S [DP every student] [VP read [DP a book]]]
+ae:       [S [DP a student] [VP read [DP every book]]]
+ee:       [S [DP every student] [VP read [DP every book]]]
+aa:       [S [DP a student] [VP read [DP a book]]]
+noevery:  [S [DP no student] [VP read [DP every book]]]
+mosta:    [S [DP most students] [VP read [DP a book]]]
+inverse:  [S [DP a [NP student [PP from [DP every country]]]] [VP left]]
+triple:   [S [DP every student] [VP [V showed [DP a professor]] [DP two books]]]

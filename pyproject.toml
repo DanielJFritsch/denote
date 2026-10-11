@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "denote"
+version = "0.1.0"
+description = "A type-driven workbench for compositional model-theoretic semantics: derivations, scope, partiality, alternatives, GQ theory, and model-theoretic statistics."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "denote contributors" }]
+keywords = ["formal semantics", "lambda calculus", "Montague grammar", "Heim and Kratzer",
+            "generalized quantifiers", "presupposition", "quantifier scope", "linguistics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Education",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []          # standard library only
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+denote = "denote.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

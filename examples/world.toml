@@ -1,0 +1,40 @@
+# world.toml — a finite extensional model M = ⟨D_e, D_d, I, g⟩ for extensional.lex / russell.lex.
+# n-ary relations are lists of tuples in application order; functions into D_d are tables.
+[domains]
+e = ["rex", "fido", "felix", "tom", "ann", "bo", "cy", "dee", "b1", "b2", "b3", "usa", "fiji"]
+d = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[interpretation]
+dog = ["rex", "fido"]
+cat = ["felix", "tom"]
+student = ["ann", "bo", "cy"]
+professor = ["dee"]
+book = ["b1", "b2", "b3"]
+king = []                                   # no king: 'the king' fails to refer
+boy = ["bo"]
+country = ["usa", "fiji"]
+brown = ["rex"]
+gray = ["felix"]
+bald = ["dee"]
+happy = ["ann", "rex"]
+bark = ["rex", "fido"]
+sleep = ["felix"]
+leave = ["ann", "felix"]
+exist = ["rex", "fido", "felix", "tom", "ann", "bo", "cy", "dee", "b1", "b2", "b3", "usa", "fiji"]
+chase = [["rex", "felix"], ["fido", "felix"], ["rex", "tom"], ["rex", "rex"]]
+read = [["ann", "b1"], ["ann", "b2"], ["bo", "b2"], ["cy", "b3"]]
+love = [["bo", "dee"]]
+see = [["bo", "ann"]]
+recommend = [["ann", "b1"], ["ann", "b2"], ["ann", "b3"]]
+mother = [["dee", "bo"]]
+from = [["ann", "usa"], ["bo", "fiji"], ["cy", "usa"]]
+in = []
+show = [["dee", "b1", "ann"], ["dee", "b2", "ann"]]
+male = ["rex", "fido", "tom", "bo"]
+female = ["ann", "cy", "dee", "felix"]
+nonhuman = ["rex", "fido", "felix", "tom", "b1", "b2", "b3"]
+height = { rex = 3, fido = 2, felix = 1, tom = 1, ann = 7, bo = 6, cy = 5, dee = 7, b1 = 0, b2 = 0, b3 = 0, usa = 0, fiji = 0 }
+stnd = 5
+
+[assignment]                                # g: values for free indexed pronouns
+x1 = "bo"

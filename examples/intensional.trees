@@ -1,0 +1,7 @@
+% intensional.trees — modality and attitudes (use with intensional.lex)
+dedicto:    [S John [VP believes [CP that [S [DP a spy] [VP left]]]]]
+seek:       [S John [VP seeks [DP a unicorn]]]
+modal:      [S must [S [DP every student] [VP leave]]]
+might:      [S might [S Mary [VP leave]]]
+factive:    [S John [VP knows [CP that [S Mary [VP left]]]]]
+negfactive: [S John [VP doesn't [VP know [CP that [S Mary [VP left]]]]]]

@@ -1,0 +1,11 @@
+digraph entailment {
+  rankdir=BT; node [shape=box, fontname="Helvetica"];
+  n0 [label="d1\n∃e[agent(e, brutus) ∧ stab(e) ∧ theme(e, caesar)]"];
+  n1 [label="d2\n∃e[agent(e, brutus) ∧ stab(e) ∧ theme(e, caesar) ∧ violent(e)]"];
+  n2 [label="d3\n∃e[agent(e, brutus) ∧ stab(e) ∧ theme(e, caesar) ∧ instr(e, ιx[knife(x)])]"];
+  n3 [label="d4\n∃e[agent(e, brutus) ∧ stab(e) ∧ theme(e, caesar) ∧ violent(e) ∧ instr(e, ιx[knife(x)])]"];
+  n1 -> n0;   // d2 ⊨ d1
+  n2 -> n0;   // d3 ⊨ d1
+  n3 -> n1;   // d4 ⊨ d2
+  n3 -> n2;   // d4 ⊨ d3
+}

@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2cm,landscape]{geometry}
+\usepackage{amsmath,amssymb,stmaryrd,forest,adjustbox}
+\begin{document}
+\section*{every dog who chased Felix barks}
+\begin{adjustbox}{max width=\linewidth, max totalheight=0.82\textheight, center}
+\begin{forest}
+  for tree={align=center, base=bottom, font=\small, s sep=4mm}
+  [{S\\$t$\\$\forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow \mathit{bark}(x)]$\\\scriptsize\textsc{FA}} [{DP\\$\langle \langle e,t\rangle,t\rangle$\\$\lambda Q.\forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow Q(x)]$\\\scriptsize\textsc{FA}} [{\textit{every}\\$\langle \langle e,t\rangle,\langle \langle e,t\rangle,t\rangle\rangle$\\$\lambda P.\lambda Q.\forall x[P(x) \rightarrow Q(x)]$\\\scriptsize\textsc{TN}}] [{NP\\$\langle e,t\rangle$\\$\lambda x.\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix})$\\\scriptsize\textsc{PM}} [{\textit{dog}\\$\langle e,t\rangle$\\$\lambda x.\mathit{dog}(x)$\\\scriptsize\textsc{TN}}] [{CP\\$\langle e,t\rangle$\\$\lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix})$\\\scriptsize\textsc{FA}} [{\textit{who}\\$\langle \langle e,t\rangle,\langle e,t\rangle\rangle$\\$\lambda P.P$\\\scriptsize\textsc{TN}}] [{$\lambda_{1}$\\$\langle e,t\rangle$\\$\lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix})$\\\scriptsize\textsc{PA}} [{S\\$t$\\$\mathit{chase}(x_{1}, \mathit{felix})$\\\scriptsize\textsc{FA}} [{\textit{t$_{1}$}\\$e$\\$x_{1}$\\\scriptsize\textsc{TN}}] [{VP\\$\langle e,t\rangle$\\$\lambda x.\mathit{chase}(x, \mathit{felix})$\\\scriptsize\textsc{FA}} [{\textit{chased}\\$\langle e,\langle e,t\rangle\rangle$\\$\lambda y.\lambda x.\mathit{chase}(x, y)$\\\scriptsize\textsc{TN}}] [{\textit{Felix}\\$e$\\$\mathit{felix}$\\\scriptsize\textsc{TN$^{*}$}}]]]]]]] [{VP\\$\langle e,t\rangle$\\$\lambda x.\mathit{bark}(x)$\\\scriptsize\textsc{NN}} [{\textit{barks}\\$\langle e,t\rangle$\\$\lambda x.\mathit{bark}(x)$\\\scriptsize\textsc{TN}}]]]
+\end{forest}
+\end{adjustbox}
+
+\bigskip
+\begin{align*}
+\llbracket \text{\textit{chased} \textit{Felix}} \rrbracket &= (\lambda y.\lambda x.\mathit{chase}(x, y))(\mathit{felix}) && \text{(FA)} \\
+&= \lambda x.\mathit{chase}(x, \mathit{felix}) && (\beta)
+\end{align*}
+\begin{align*}
+\llbracket \text{\textit{t$_{1}$} \textit{chased} \textit{Felix}} \rrbracket &= (\lambda x.\mathit{chase}(x, \mathit{felix}))(x_{1}) && \text{(FA)} \\
+&= \mathit{chase}(x_{1}, \mathit{felix}) && (\beta)
+\end{align*}
+\begin{align*}
+\llbracket \text{$\lambda_{1}$ \textit{t$_{1}$} \textit{chased} \textit{Felix}} \rrbracket &= \lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix}) && \text{(PA)}
+\end{align*}
+\begin{align*}
+\llbracket \text{\textit{who} $\lambda_{1}$ \textit{t$_{1}$} \textit{chased} \textit{Felix}} \rrbracket &= (\lambda P.P)(\lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix})) && \text{(FA)} \\
+&= \lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix}) && (\beta)
+\end{align*}
+\begin{align*}
+\llbracket \text{\textit{dog} \textit{who} $\lambda_{1}$ \textit{t$_{1}$} \textit{chased} \textit{Felix}} \rrbracket &= \lambda x.(\lambda x.\mathit{dog}(x))(x) \wedge (\lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix}))(x) && \text{(PM)} \\
+&= \lambda x.\mathit{dog}(x) \wedge (\lambda x_{1}.\mathit{chase}(x_{1}, \mathit{felix}))(x) && (\beta) \\
+&= \lambda x.\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) && (\beta)
+\end{align*}
+\begin{align*}
+\llbracket \text{\textit{every} \textit{dog} \textit{who} $\lambda_{1}$ \textit{t$_{1}$} \textit{chased} \textit{Felix}} \rrbracket &= (\lambda P.\lambda Q.\forall x[P(x) \rightarrow Q(x)])(\lambda x.\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix})) && \text{(FA)} \\
+&= \lambda Q.\forall x[(\lambda x.\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}))(x) \rightarrow Q(x)] && (\beta) \\
+&= \lambda Q.\forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow Q(x)] && (\beta)
+\end{align*}
+\begin{align*}
+\llbracket \text{\textit{every} \textit{dog} \textit{who} $\lambda_{1}$ \textit{t$_{1}$} \textit{chased} \textit{Felix} \textit{barks}} \rrbracket &= (\lambda Q.\forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow Q(x)])(\lambda x.\mathit{bark}(x)) && \text{(FA)} \\
+&= \forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow (\lambda x.\mathit{bark}(x))(x)] && (\beta) \\
+&= \forall x[\mathit{dog}(x) \wedge \mathit{chase}(x, \mathit{felix}) \rightarrow \mathit{bark}(x)] && (\beta)
+\end{align*}
+\end{document}

@@ -1,0 +1,5 @@
+% events.trees — Davidson's diamond (use with events.lex)
+d1: [S Brutus [VoiceP Agent [VP stabbed Caesar]]]
+d2: [S Brutus [VoiceP Agent [VP [VP stabbed Caesar] violently]]]
+d3: [S Brutus [VoiceP Agent [VP [VP stabbed Caesar] [PP with [DP the knife]]]]]
+d4: [S Brutus [VoiceP Agent [VP [VP [VP stabbed Caesar] violently] [PP with [DP the knife]]]]]

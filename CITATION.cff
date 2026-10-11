@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use denote in research or teaching, please cite it as below."
+title: "denote: a type-driven workbench for compositional model-theoretic semantics"
+version: 0.1.0
+date-released: 2026-10-07
+license: MIT
+authors:
+  - name: "denote contributors"
+abstract: >-
+  denote composes sentence meanings from typed lambda-term lexicons and constituency trees,
+  derives scope readings by four mechanisms (QR, Cooper storage, continuations, flexible types),
+  computes presupposition projection under three trivalent schemes, tests generalized-quantifier
+  universals, and reports model-theoretic statistics over finite model classes.
+keywords: [formal semantics, lambda calculus, compositionality, quantifier scope, presupposition]

@@ -1,0 +1,77 @@
+# suite.toml — a FraCaS-style mini-suite plus readings counts and truth-value judgements.
+# Run against competing lexicons:  denote suite extensional.lex russell.lex --suite suite.toml
+title = "denote mini-suite: entailment, ambiguity, truth-value judgements"
+
+[[item]]
+id = "nli-every-mp"
+premises = ["[S [DP every dog] [VP barks]]", "[S Rex [VP is [DP a dog]]]"]
+hypothesis = "[S Rex [VP barks]]"
+gold = "yes"
+
+[[item]]
+id = "nli-every-down"
+premises = ["[S [DP every dog] [VP barks]]"]
+hypothesis = "[S [DP every [NP brown dog]] [VP barks]]"
+gold = "yes"
+note = "every is ↓ in its restrictor"
+
+[[item]]
+id = "nli-some-up"
+premises = ["[S [DP some [NP brown dog]] [VP barks]]"]
+hypothesis = "[S [DP some dog] [VP barks]]"
+gold = "yes"
+
+[[item]]
+id = "nli-no-contra"
+premises = ["[S [DP no dog] [VP barks]]"]
+hypothesis = "[S [DP some dog] [VP barks]]"
+gold = "no"
+
+[[item]]
+id = "nli-some-every"
+premises = ["[S [DP some dog] [VP barks]]"]
+hypothesis = "[S [DP every dog] [VP barks]]"
+gold = "unknown"
+
+[[item]]
+id = "nli-most-some"
+premises = ["[S [DP most dogs] [VP bark]]"]
+hypothesis = "[S [DP some dog] [VP barks]]"
+gold = "yes"
+
+[[item]]
+id = "nli-the-some"
+premises = ["[S [DP the king] [VP is bald]]"]
+hypothesis = "[S [DP some king] [VP is bald]]"
+gold = "yes"
+
+[[item]]
+id = "amb-every-a"
+tree = "[S [DP every student] [VP read [DP a book]]]"
+readings = 2
+
+[[item]]
+id = "amb-every-every"
+tree = "[S [DP every student] [VP read [DP every book]]]"
+readings = 1
+note = "two LFs, one truth condition: spurious ambiguity"
+
+[[item]]
+id = "tvj-king"
+tree = "[S [DP the king] [VP is bald]]"
+model = "world.toml"
+truth = "#"
+note = "Strawsonian gap: speakers judge neither true nor false (cf. von Fintel 2004)"
+
+[[item]]
+id = "tvj-not-king"
+tree = "[S not [S [DP the king] [VP is bald]]]"
+model = "world.toml"
+truth = "1"
+note = "'it is not the case that the king is bald' read with wide-scope negation: true"
+
+[[item]]
+id = "tvj-every-dog"
+tree = "[S [DP every dog] [VP barks]]"
+model = "world.toml"
+truth = "1"
